@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface CsvReader {
     List<User> read() throws IOException;
-    int countRows();
+    int countRows() throws IOException;
 }
