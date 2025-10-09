@@ -42,6 +42,7 @@ public class MailCowClient {
     public HttpRequest.Builder requestBuilder(String path) {
         return HttpRequest.newBuilder()
                 .uri(URI.create(this.baseUrl+path))
+                .header("Content-Type", "application/json")
                 .header(API_KEY_HEADER, apiKey);
     }
 

@@ -20,10 +20,10 @@ public class MailBoxAPI {
     private final MailCowClient mailCowClient = MailCowClient.getInstance();
 
     public User createEmailForUser(User user) throws JsonProcessingException, ExecutionException, InterruptedException {
+        CreateMailRequest createMailRequest = defaultCreateMailRequest(user.getUsername(), user.getPassword());
         HttpRequest request = mailCowClient.requestBuilder(MAILBOX_ENDPOINT)
-                .POST(HttpRequest.BodyPublishers.ofString(RequestMapper.toJson(defaultCreateMailRequest(user.getUsername(), user.getPassword()))))
+                .POST(HttpRequest.BodyPublishers.ofString(RequestMapper.toJson(createMailRequest)))
                 .build();
-
         HttpResponse<String> response = mailCowClient.send(request, HttpResponse.BodyHandlers.ofString()).get();
         CreateMailResponse[] createMailResponse = ResponseMapper.toObject(response.body(), CreateMailResponse[].class);
         if (response.statusCode() != 200 || !createMailResponse[0].getType().equals(SUCCESS))
