@@ -8,7 +8,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
 
-import static com.recceda.Constants.API_KEY_HEADER;
+import static com.recceda.constants.Constants.API_KEY_HEADER;
 
 public class MailCowClient {
 
@@ -29,6 +29,7 @@ public class MailCowClient {
         this.apiKey = apiKey;
         this.baseUrl = baseUrl;
         this.domain = domain;
+        this.client = HttpClient.newHttpClient();
     }
 
     public static synchronized MailCowClient getInstance() {
@@ -40,7 +41,7 @@ public class MailCowClient {
 
     public HttpRequest.Builder requestBuilder(String path) {
         return HttpRequest.newBuilder()
-                .uri(URI.create(path))
+                .uri(URI.create(this.baseUrl+path))
                 .header(API_KEY_HEADER, apiKey);
     }
 

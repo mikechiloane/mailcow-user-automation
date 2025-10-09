@@ -15,7 +15,7 @@ import java.util.concurrent.ExecutionException;
 import static com.recceda.constants.Constants.MAILBOX_ENDPOINT;
 import static com.recceda.constants.Constants.SUCCESS;
 
-public class MailBox {
+public class MailBoxAPI {
 
     private final MailCowClient mailCowClient = MailCowClient.getInstance();
 
