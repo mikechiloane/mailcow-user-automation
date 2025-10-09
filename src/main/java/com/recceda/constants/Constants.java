@@ -1,4 +1,4 @@
-package com.recceda;
+package com.recceda.constants;
 
 public final class Constants {
     public static String API_KEY_HEADER = "x-api-key";

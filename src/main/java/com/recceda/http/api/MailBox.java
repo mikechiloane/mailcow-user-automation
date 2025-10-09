@@ -12,8 +12,8 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.concurrent.ExecutionException;
 
-import static com.recceda.Constants.MAILBOX_ENDPOINT;
-import static com.recceda.Constants.SUCCESS;
+import static com.recceda.constants.Constants.MAILBOX_ENDPOINT;
+import static com.recceda.constants.Constants.SUCCESS;
 
 public class MailBox {
 
